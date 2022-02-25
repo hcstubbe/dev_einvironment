@@ -43,6 +43,8 @@ RUN R -e "install.packages(c('devtools'), repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages(c('rhub'), repos='http://cran.rstudio.com/')" 
 RUN R -e "install.packages(c('apexcharter'), repos='http://cran.rstudio.com/')" 
 RUN R -e "install.packages(c('fmsb'), repos='http://cran.rstudio.com/')" 
+RUN R -e "install.packages(c('RSQLite'), repos='http://cran.rstudio.com/')" 
+RUN R -e "install.packages(c('glue'), repos='http://cran.rstudio.com/')" 
 RUN R -e "remotes::install_github('RinteRface/charpente', repos='http://cran.rstudio.com/')" 
 
 EXPOSE 8787
