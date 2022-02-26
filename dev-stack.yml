@@ -14,7 +14,7 @@ services:
       - sp-net-dev
       
   rstudio:
-    image: rstudio4test
+    image: rstudio4dev
     restart: always
     environment:
       PASSWORD: test123
