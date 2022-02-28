@@ -3,7 +3,7 @@ FROM rocker/rstudio:latest
 # Install MySQL and oher reuired dependencies
 RUN apt-get update -qq && \
     apt-get -y --no-install-recommends install \
-    libmysqlclient-dev libxml2-dev
+    libmysqlclient-dev libxml2-dev libxt6
 
 # install required R packages 
 # (change it dependeing on the packages you need)
