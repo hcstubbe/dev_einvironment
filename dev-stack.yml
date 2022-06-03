@@ -28,6 +28,19 @@ services:
       restart_policy:
         condition: on-failure
       
+  jupyterlab:
+    image: jupyter/datascience-notebook
+    restart: always
+    ports:
+      - 10000:8888
+    networks:
+      - sp-net-dev
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      
+
 networks:
   sp-net-dev:
     external: false
