@@ -1,2 +1,2 @@
 # To run
-`docker-compose -f .\dev-stack.yml up`
+`docker-compose -f .\dev-stack.yml up -d`
