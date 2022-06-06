@@ -14,7 +14,7 @@ services:
       - sp-net-dev
       
   rstudio:
-    image: hstubbe/rstudio4dev
+    image: hstubbe/rstudio4dev:latest
     restart: always
     environment:
       PASSWORD: test123
@@ -29,7 +29,7 @@ services:
         condition: on-failure
       
   jupyterlab:
-    image: jupyter/datascience-notebook
+    image: hstubbe/nanopore-notebook
     restart: always
     ports:
       - 10000:8888
