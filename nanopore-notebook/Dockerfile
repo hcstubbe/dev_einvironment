@@ -62,6 +62,10 @@ RUN conda install -y -c bioconda seqkit
 
 RUN pip install --no-cache-dir git+https://github.com/rrwick/Porechop
 
+RUN pip install --no-cache-dir nbdev
+
+# RUN conda install pomoxis
+
 WORKDIR "${HOME}"
 
 
