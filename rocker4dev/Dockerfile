@@ -3,7 +3,7 @@ FROM rocker/rstudio:latest
 # Install MySQL and oher reuired dependencies
 RUN apt-get update -qq && \
     apt-get -y --no-install-recommends install \
-    libmysqlclient-dev libxml2-dev libxt6
+    libmysqlclient-dev libxml2-dev libxt6 java-11
 
 # install required R packages 
 # (change it dependeing on the packages you need)
@@ -45,6 +45,7 @@ RUN R -e "install.packages(c('apexcharter'), repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages(c('fmsb'), repos='http://cran.rstudio.com/')" 
 RUN R -e "install.packages(c('RSQLite'), repos='http://cran.rstudio.com/')" 
 RUN R -e "install.packages(c('glue'), repos='http://cran.rstudio.com/')" 
+RUN R -e "install.packages(c('h2o'), repos='http://cran.rstudio.com/')" 
 RUN R -e "remotes::install_github('RinteRface/charpente', repos='http://cran.rstudio.com/')" 
 
 EXPOSE 8787
