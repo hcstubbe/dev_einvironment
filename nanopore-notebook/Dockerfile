@@ -1,7 +1,7 @@
 # Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
-ARG OWNER=hstubbe
-ARG BASE_CONTAINER=$OWNER/datascience-notebook
+ARG OWNER=jupyter
+ARG BASE_CONTAINER=$OWNER/tensorflow-notebook
 FROM $BASE_CONTAINER
 
 LABEL maintainer="Hans Christian Subbe <hstubbe@med.lmu.de>"
@@ -62,7 +62,7 @@ RUN conda install -y -c bioconda seqkit
 
 RUN pip install --no-cache-dir git+https://github.com/rrwick/Porechop
 
-RUN pip install --no-cache-dir nbdev
+RUN pip install --no-cache-dir nbdev 
 
 # RUN conda install pomoxis
 
