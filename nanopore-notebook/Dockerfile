@@ -1,7 +1,7 @@
 # Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
 ARG OWNER=jupyter
-ARG BASE_CONTAINER=$OWNER/tensorflow-notebook
+ARG BASE_CONTAINER=$OWNER/datascience-notebook
 FROM $BASE_CONTAINER
 
 LABEL maintainer="Hans Christian Subbe <hstubbe@med.lmu.de>"
