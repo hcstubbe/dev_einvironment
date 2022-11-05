@@ -29,7 +29,7 @@ services:
         condition: on-failure
       
   jupyterlab:
-    image: hstubbe/nanopore-notebook
+    image: jupyter/tensorflow-notebook
     restart: always
     ports:
       - 10000:8888
