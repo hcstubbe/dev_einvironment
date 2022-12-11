@@ -1,0 +1,56 @@
+# Use root/example as user/password credentials
+version: '3.5'
+
+services:
+  dbdevdanjgo:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: danjgocou
+      MYSQL_DATABASE: mydbdevdanjgo
+      MYSQL_USER: userdanjgo
+      MYSQL_PASSWORD: userdanjgo
+    networks:
+      - sp-net-dev-danjgo
+            
+
+  jupyterlabdanjgo:
+    image: hstubbe/dj-tf-notebook
+    restart: always
+    ports:
+      - 7070:8888
+      - 5050:8000
+    networks:
+      - sp-net-dev-danjgo
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    command: bash -c "start.sh jupyter lab"
+      
+
+  rstudiodanjgo:
+    image: hstubbe/rstudio4dev:latest
+    restart: always
+    environment:
+      PASSWORD: test123
+      ADD: shiny
+    ports:
+      - 6060:8787
+    networks:
+      - sp-net-dev-danjgo
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      
+
+networks:
+  sp-net-dev-danjgo:
+    external: false
