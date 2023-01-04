@@ -6,7 +6,7 @@
 
 ## JupyterLab and RStudio
 The following runs the JupyterLab and RStudio containers including a MariaDB SQL database server (without GPU enabled) for TensorFlow and general R pipelines
-* Install the [Docker engine](https://docs.docker.com/engine/install/) or [Docker Desktop](https://www.docker.com/products/docker-desktop/) (be aware of the license requirements!) with [WSL2](https://learn.microsoft.com/de-de/windows/wsl/install)
+* Install the [Docker engine](https://docs.docker.com/engine/install/) or [Docker Desktop](https://www.docker.com/products/docker-desktop/) (be aware of the license requirements!)
 * Start with: `docker-compose -f dev-stack.yml up -d`
 * Then, open on the local host
   * **RStudio**: [http://localhost:9090/](http://localhost:9090/) (user: rstudio, password: test123; change in dev-stack.yml!)
@@ -29,7 +29,7 @@ The following runs the JupyterLab and RStudio containers including a MariaDB SQL
   
 ## The django stack
 The following runs the JupyerLab and RStudio containers for developing Django web apps including a MariaDB server.
-* Install the [Docker engine](https://docs.docker.com/engine/install/) or [Docker Desktop](https://www.docker.com/products/docker-desktop/) (be aware of the license requirements!) with [WSL2](https://learn.microsoft.com/de-de/windows/wsl/install)
+* Install the [Docker engine](https://docs.docker.com/engine/install/) or [Docker Desktop](https://www.docker.com/products/docker-desktop/) (be aware of the license requirements!)
 * Start with: `docker-compose -f dj-tf-notebook/dev-stack.yml up -d`
 * Then, open on the local host to run
   * **RStudio**: [http://localhost:9090/](http://localhost:6060/) (user: rstudio, password: test123; change in dev-stack.yml!)
