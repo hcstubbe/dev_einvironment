@@ -1,7 +1,7 @@
 # Docker development environment
 
 ## JupyterLab and RStudio
-The following runs the JupyterLab and RStudio containers including a MariaDB SQL database server with GPU enabled for TensorFlow and general R pipelines
+The following runs the JupyterLab and RStudio containers including a MariaDB SQL database server (without GPU enabled) for TensorFlow and general R pipelines
 * Start without GPU support: `docker-compose -f dev-stack.yml up -d`, or 
 * Then, open on the local host
   * **RStudio**: [http://localhost:9090/](http://localhost:9090/) (user: rstudio, password: test123; change in dev-stack.yml!)
@@ -16,11 +16,11 @@ The following runs the JupyterLab and RStudio containers including a MariaDB SQL
     * Install [WSL2](https://learn.microsoft.com/de-de/windows/wsl/install)
     * Install [Docker Desktop](https://www.docker.com/products/docker-desktop/)
     * Install [Nvidia drivers for Windows](https://www.nvidia.com/download/index.aspx)
-* Start with GPU support `docker-compose -f dev-stack.yml up -d` (this requires an NVIDIA GPU and the respective drivers/installation)
+* Start with GPU support `docker-compose -f dev-stack-gpu.yml up -d` (this requires an NVIDIA GPU and the respective drivers/installation)
 * Then, open on the local host
   * **RStudio**: [http://localhost:9090/](http://localhost:9090/) (user: rstudio, password: test123; change in dev-stack.yml!)
   * **JupyterLab**: [http://localhost:9090/](http://localhost:10000/) (you can find the token by running `docker exec -it [CONTAINER ID] jupyter server list` on the jupyter-lab container.
-* Shutdown with: `docker-compose -f dev-stack.yml down`
+* Shutdown with: `docker-compose -f dev-stack-gpu.yml down`
   
 ## The django stack
 The following runs the JupyerLab and RStudio containers for developing Django web apps including a MariaDB server.
