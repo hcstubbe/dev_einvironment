@@ -39,6 +39,12 @@ services:
       replicas: 1
       restart_policy:
         condition: on-failure
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
     command: bash -c "start.sh jupyter lab"
       
 
