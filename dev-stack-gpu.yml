@@ -35,6 +35,7 @@ services:
       - 10000:8888
     networks:
       - sp-net-dev
+    user: jovyan
     deploy:
       replicas: 1
       restart_policy:
