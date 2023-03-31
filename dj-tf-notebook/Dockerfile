@@ -22,7 +22,7 @@ RUN apt-get update --yes && \
 # Install mysqlclient
 RUN pip3 install --upgrade pip && \
     pip3 install --no-cache mysqlclient && \
-    pip3 install --no-cache Django
+    pip3 install --no-cache Django psycopg2-binary
 # RUN conda install pomoxis
 
 WORKDIR "${HOME}"

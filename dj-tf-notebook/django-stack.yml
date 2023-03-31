@@ -3,19 +3,18 @@ version: '3.5'
 
 services:
   dbdevdanjgo:
-    image: mariadb
+    image: postgres:latest
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: danjgocou
-      MYSQL_DATABASE: mydbdevdanjgo
-      MYSQL_USER: userdanjgo
-      MYSQL_PASSWORD: userdanjgo
+      - POSTGRES_USER=userdanjgo
+      - POSTGRES_PASSWORD=userdanjgo
+      - POSTGRES_DB=mydbdevdanjgo
     networks:
       - sp-net-dev-danjgo
             
 
   jupyterlabdanjgo:
-    image: hstubbe/dj-tf-notebook
+    image: hstubbe/dj-tf-notebook:postgres
     restart: always
     ports:
       - 7070:8888
