@@ -2,16 +2,27 @@
 version: '3.5'
 
 services:
+  # dbdevdanjgo:
+    # image: postgres:latest
+    # restart: always
+    # environment:
+      # - POSTGRES_USER=userdanjgo
+      # - POSTGRES_PASSWORD=userdanjgo
+      # - POSTGRES_DB=mydbdevdanjgo
+    # networks:
+      # - sp-net-dev-danjgo
+
   dbdevdanjgo:
-    image: postgres:latest
+    image: mariadb
     restart: always
     environment:
-      - POSTGRES_USER=userdanjgo
-      - POSTGRES_PASSWORD=userdanjgo
-      - POSTGRES_DB=mydbdevdanjgo
+      MYSQL_ROOT_PASSWORD: danjgocou
+      MYSQL_DATABASE: mydbdevdanjgo
+      MYSQL_USER: userdanjgo
+      MYSQL_PASSWORD: userdanjgo
     networks:
       - sp-net-dev-danjgo
-            
+
 
   jupyterlabdanjgo:
     image: hstubbe/dj-tf-notebook:postgres
