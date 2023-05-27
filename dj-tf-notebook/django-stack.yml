@@ -19,19 +19,24 @@ services:
       MYSQL_ROOT_PASSWORD: danjgocou
       MYSQL_DATABASE: mydbdevdanjgo
       MYSQL_USER: userdanjgo
-      MYSQL_PASSWORD: userdanjgo
+      MYSQL_PASSWORD: dbtestpwd
     networks:
       - sp-net-dev-danjgo
 
 
   jupyterlabdanjgo:
-    image: hstubbe/dj-tf-notebook:postgres
+    image: hstubbe/dj-tf-notebook:latest
     restart: always
     ports:
       - 7070:8888
       - 5050:8000
     networks:
       - sp-net-dev-danjgo
+    environment:
+      - DEBUG=1
+      - DJANGO_ALLOWED_HOSTS=localhost
+      - CSRF_TRUSTED_ORIGINS=https://localhost
+      - DB_PASSWORD=dbtestpwd
     user: jovyan
     deploy:
       replicas: 1
