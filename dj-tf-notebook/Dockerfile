@@ -26,3 +26,11 @@ RUN pip3 install --upgrade pip && \
 # RUN conda install pomoxis
 
 WORKDIR "${HOME}"
+
+RUN mkdir '/home/lcarsm'
+
+RUN chown -R jovyan:users "${HOME}"
+RUN chown -R jovyan:users '/home/lcarsm'
+
+
+USER jovyan
