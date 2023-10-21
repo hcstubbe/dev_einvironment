@@ -6,7 +6,7 @@
 
 ## Django testing
 * To test on mariadb (DO NOT USE THE PRODUCTION DATABASE FOR TESTING) run the following on the database server:
-	* `mariadb --user=root --password=danjgocou` # starts cli
+	* `mariadb --user=root --password=danjgocou` # start cli
 	* `GRANT ALL PRIVILEGES ON test_mydbdevdanjgo.* TO 'userdanjgo';` # change permissions
 
 ## JupyterLab and RStudio
