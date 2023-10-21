@@ -36,3 +36,8 @@ The following runs the JupyerLab and RStudio containers for developing Django we
   * **JupyterLab**: [http://localhost:9090/](http://localhost:7070/) (you can find the token by running `docker exec -it [CONTAINER ID] jupyter server list` on the jupyter-lab container.
   * **Django development server**: run `python manage.py runserver 0.0.0.0:8000` in the JupyerLab terminal and open [http://localhost:9090/](http://localhost:5050/)
 * Shutdown with: `docker-compose -f dj-tf-notebook/dev-stack.yml down`
+
+* Testing
+	* To test on mariadb (DO NOT USE THE PRODUCTION DATABASE FOR TESTING) run the following on the database server:
+		* `mariadb --user=root --password=danjgocou` # starts cli
+		* `GRANT ALL PRIVILEGES ON test_mydbdevdanjgo.* TO 'userdanjgo'; # change permissions`
