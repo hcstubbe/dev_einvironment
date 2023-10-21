@@ -7,7 +7,7 @@
 ## Django testing
 * To test on mariadb (DO NOT USE THE PRODUCTION DATABASE FOR TESTING) run the following on the database server:
 	* `mariadb --user=root --password=danjgocou` # starts cli
-	* `GRANT ALL PRIVILEGES ON test_mydbdevdanjgo.* TO 'userdanjgo'; # change permissions`
+	* `GRANT ALL PRIVILEGES ON test_mydbdevdanjgo.* TO 'userdanjgo';` # change permissions
 
 ## JupyterLab and RStudio
 The following runs the JupyterLab and RStudio containers including a MariaDB SQL database server (without GPU enabled) for TensorFlow and general R pipelines
