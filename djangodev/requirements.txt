@@ -1,0 +1,12 @@
+setuptools>=65.5.1
+Django
+django-axes
+django-csp
+django-environ
+django-pwa
+gunicorn
+mysqlclient
+pandas
+pynacl
+seaborn
+whitenoise

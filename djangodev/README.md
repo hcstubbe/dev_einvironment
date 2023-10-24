@@ -1,0 +1,1 @@
+To start: `docker-compose -f django-stack.yml up -d`

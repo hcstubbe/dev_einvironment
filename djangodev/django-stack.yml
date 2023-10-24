@@ -1,0 +1,48 @@
+# Use root/example as user/password credentials
+version: '3.5'
+
+services:
+  # dbdevdanjgo:
+    # image: postgres:latest
+    # restart: always
+    # environment:
+      # - POSTGRES_USER=userdanjgo
+      # - POSTGRES_PASSWORD=userdanjgo
+      # - POSTGRES_DB=mydbdevdanjgo
+    # networks:
+      # - sp-net-dev-danjgo
+
+  dbdevdanjgo:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: danjgocou
+      MYSQL_DATABASE: mydbdevdanjgo
+      MYSQL_USER: userdanjgo
+      MYSQL_PASSWORD: dbtestpwd
+    networks:
+      - sp-net-dev-danjgo
+
+  djangodev:
+    image: hstubbe/djangodev:latest
+    restart: always
+    ports:
+      - 7070:8888
+      - 5050:8000
+    networks:
+      - sp-net-dev-danjgo
+    environment:
+      - DEBUG=True
+      - DJANGO_ALLOWED_HOSTS=localhost
+      - CSRF_TRUSTED_ORIGINS=https://localhost
+      - DB_PASSWORD=dbtestpwd
+      - SECURE_SSL_REDIRECT=False
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure   
+    tty: true
+
+networks:
+  sp-net-dev-danjgo:
+    external: false
