@@ -34,3 +34,4 @@ ENV PATH="/opt/venv/bin:$PATH"
 # Run as non-root
 RUN addgroup -S lcarsm && adduser -S lcarsm -G lcarsm
 USER lcarsm
+ENV SHELL /bin/bash

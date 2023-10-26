@@ -42,6 +42,7 @@ services:
       restart_policy:
         condition: on-failure   
     tty: true
+    user: lcarsm
 
 networks:
   sp-net-dev-danjgo:
