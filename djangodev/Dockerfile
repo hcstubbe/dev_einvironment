@@ -1,5 +1,5 @@
 # Select base image
-ARG BASE_IMG_VER=3.12-alpine
+ARG BASE_IMG_VER=alpine3.19
 
 # Create build image
 FROM python:${BASE_IMG_VER} as base
