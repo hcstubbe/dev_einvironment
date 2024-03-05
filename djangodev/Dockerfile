@@ -8,8 +8,7 @@ RUN apk add --update --virtual .build-deps \
     postgresql-dev \
     python3-dev \
     libpq \
-    musl-dev \ 
-    mariadb-dev
+    musl-dev
 
 # Use virtualenv
 RUN python -m venv --copies /opt/venv
@@ -23,8 +22,8 @@ RUN pip install -r requirements.txt
 # Second build stage
 FROM python:${BASE_IMG_VER}
 RUN apk add --update \
-    mariadb-connector-c \
     bash \
+    gettext \
     git
 COPY --from=base /opt/venv /opt/venv
 

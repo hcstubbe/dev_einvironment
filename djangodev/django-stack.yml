@@ -2,26 +2,26 @@
 version: '3.5'
 
 services:
-  # dbdevdanjgo:
-    # image: postgres:latest
-    # restart: always
-    # environment:
-      # - POSTGRES_USER=userdanjgo
-      # - POSTGRES_PASSWORD=userdanjgo
-      # - POSTGRES_DB=mydbdevdanjgo
-    # networks:
-      # - sp-net-dev-danjgo
-
   dbdevdanjgo:
-    image: mariadb
+    image: postgres:16.2-alpine3.19
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: danjgocou
-      MYSQL_DATABASE: mydbdevdanjgo
-      MYSQL_USER: userdanjgo
-      MYSQL_PASSWORD: dbtestpwd
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=mydbdevdanjgo
     networks:
       - sp-net-dev-danjgo
+
+  # dbdevdanjgo:
+  #   image: mariadb
+  #   restart: always
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: danjgocou
+  #     MYSQL_DATABASE: mydbdevdanjgo
+  #     MYSQL_USER: userdanjgo
+  #     MYSQL_PASSWORD: dbtestpwd
+  #   networks:
+  #     - sp-net-dev-danjgo
 
   djangodev:
     image: hstubbe/djangodev:latest
@@ -32,11 +32,14 @@ services:
     networks:
       - sp-net-dev-danjgo
     environment:
-      - DEBUG=True
-      - DJANGO_ALLOWED_HOSTS=localhost
-      - CSRF_TRUSTED_ORIGINS=https://localhost
-      - DB_PASSWORD=dbtestpwd
-      - SECURE_SSL_REDIRECT=False
+      - DEBUG=${DEBUG}
+      - DJANGO_ALLOWED_HOSTS=${APP_DOMAIN}
+      - CSRF_TRUSTED_ORIGINS=https://${APP_DOMAIN}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_USERNAME=${DB_USERNAME}
+      - SECRET_KEY=${SECRET_KEY}
+      - SECURE_SSL_REDIRECT=${SECURE_SSL_REDIRECT}
+      - SERVER_PRIVATE_KEY=${SERVER_PRIVATE_KEY}
     deploy:
       replicas: 1
       restart_policy:

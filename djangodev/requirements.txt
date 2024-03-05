@@ -5,8 +5,10 @@ django-csp
 django-environ
 django-pwa
 gunicorn
-mysqlclient
 pandas
+psycopg
+psycopg-binary
 pynacl
+qrcode
 seaborn
 whitenoise
