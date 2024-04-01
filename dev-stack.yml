@@ -2,17 +2,7 @@
 version: '3.5'
 
 services:
-  dbdev:
-    image: mariadb
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: coucou
-      MYSQL_DATABASE: mydbdev
-      MYSQL_USER: user
-      MYSQL_PASSWORD: user
-    networks:
-      - sp-net-dev
-      
+
   rstudio:
     image: hstubbe/rstudio4dev:latest
     restart: always
