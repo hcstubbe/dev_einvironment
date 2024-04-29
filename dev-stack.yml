@@ -4,7 +4,7 @@ version: '3.5'
 services:
 
   rstudio:
-    image: hstubbe/rstudio4dev:latest
+    image: rocker/rstudio:latest
     restart: always
     environment:
       PASSWORD: test123
