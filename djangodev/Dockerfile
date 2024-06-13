@@ -8,7 +8,8 @@ RUN apk add --update --virtual .build-deps \
     postgresql-dev \
     python3-dev \
     libpq \
-    musl-dev
+    musl-dev \ 
+    gettext
 
 # Use virtualenv
 RUN python -m venv --copies /opt/venv
