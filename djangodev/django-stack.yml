@@ -47,6 +47,14 @@ services:
     tty: true
     user: lcarsm
 
+  llm-server:
+    image: hstubbe/llm_service:v0.0.1
+    restart: always
+    ports:
+      - 5000:5000
+    networks:
+      - sp-net-dev-danjgo
+
 networks:
   sp-net-dev-danjgo:
     external: false
