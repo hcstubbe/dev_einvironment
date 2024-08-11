@@ -48,12 +48,17 @@ services:
     user: lcarsm
 
   llm-server:
-    image: hstubbe/llm_service:v0.0.2
+    image: hstubbe/llm_service:v0.0.3
     restart: always
     ports:
       - 5000:5000
     networks:
       - sp-net-dev-danjgo
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
 
 networks:
   sp-net-dev-danjgo:
