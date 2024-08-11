@@ -48,10 +48,12 @@ services:
     user: lcarsm
 
   llm-server:
-    image: hstubbe/llm_service:v0.0.3
+    image: hstubbe/llm_service:v0.0.3 
     restart: always
     ports:
-      - 5000:5000
+      - 11434:11434
+    volumes:
+      - ./ollama:/root/.ollama
     networks:
       - sp-net-dev-danjgo
     deploy:
