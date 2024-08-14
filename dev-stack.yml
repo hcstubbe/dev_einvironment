@@ -29,6 +29,7 @@ services:
       - sp-net-dev
     volumes:
       - ${DOCKER_DATA_PATH}/:/home/jovyan/home
+      - ${DOCKER_DATA_PATH_2}/:/home/jovyan/home2
     user: jovyan
     deploy:
       replicas: 1
