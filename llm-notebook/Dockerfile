@@ -1,5 +1,5 @@
 # Basis-Image von jupyter/tensorflow-notebook
-FROM jupyter/tensorflow-notebook
+FROM tensorflow/tensorflow:latest-gpu-jupyter
 
 # Benutzer root für die Installation von Paketen
 USER root
@@ -8,14 +8,6 @@ USER root
 RUN apt-get update && apt-get install -y \
     wget \
     gnupg2 \
-    && rm -rf /var/lib/apt/lists/*
-
-# Install NVIDIA driver, CUDA toolkit, and cuDNN
-RUN apt-get update && apt-get install -y \
-    nvidia-driver-460 \
-    cuda-toolkit-11-2 \
-    libcudnn8=8.1.1.33-1+cuda11.2 \
-    libcudnn8-dev=8.1.1.33-1+cuda11.2 \
     && rm -rf /var/lib/apt/lists/*
 
 # Download and install Ollama
