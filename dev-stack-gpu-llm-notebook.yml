@@ -1,5 +1,5 @@
 # Use root/example as user/password credentials
-version: '3.5'
+version: '3.8'
 
 services:
   dbdevllm:
@@ -20,8 +20,12 @@ services:
       - 10000:8888
     networks:
       - llm-net-dev
-    user: jovyan
+    user: root
     volumes:
+      # Define DOCKER_DATA_PATH and DOCKER_DATA_PATH_2 environment variables before running docker-compose
+      # Example (Linux):
+      # export DOCKER_DATA_PATH=[/path/to/your/data]
+      # export DOCKER_DATA_PATH_2=[/path/to/your/data2]
       - ${DOCKER_DATA_PATH}/:/home/jovyan/home
       - ${DOCKER_DATA_PATH_2}/:/home/jovyan/home2
     deploy:
@@ -34,7 +38,7 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [gpu]
-    command: bash -c "start.sh jupyter lab"
+    command: bash -c "useradd -m jovyan && su jovyan -c 'start.sh jupyter lab'"
       
 
 networks:
