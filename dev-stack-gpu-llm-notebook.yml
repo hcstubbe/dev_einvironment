@@ -21,6 +21,9 @@ services:
     networks:
       - llm-net-dev
     user: jovyan
+    volumes:
+      - ${DOCKER_DATA_PATH}/:/home/jovyan/home
+      - ${DOCKER_DATA_PATH_2}/:/home/jovyan/home2
     deploy:
       replicas: 1
       restart_policy:
