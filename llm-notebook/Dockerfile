@@ -17,5 +17,8 @@ RUN wget -qO - https://ollama.com/install.sh | bash
 # Add python packages
 RUN pip install numpy pandas matplotlib scikit-learn sqlalchemy ollama
 
-# Set standard user
-USER ${NB_UID}
+# Create user jovyan
+RUN useradd -m -s /bin/bash jovyan
+
+# Zurück zum Standardbenutzer
+USER jovyan
