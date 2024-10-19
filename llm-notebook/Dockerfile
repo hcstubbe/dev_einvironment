@@ -13,5 +13,8 @@ RUN apt-get update && apt-get install -y \
 # Download and install Ollama
 RUN wget -qO - https://ollama.com/install.sh | bash
 
+# Create user jovan
+RUN useradd -m -s /bin/bash jovan
+
 # Zurück zum Standardbenutzer
 USER ${NB_UID}
