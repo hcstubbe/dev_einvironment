@@ -1,5 +1,5 @@
-# Basis-Image von jupyter/tensorflow-notebook
-FROM tensorflow/tensorflow:latest-gpu-jupyter
+# Basis-Image von pytorch/pytorch
+FROM pytorch/pytorch:latest
 
 # Benutzer root für die Installation von Paketen
 USER root
@@ -8,13 +8,17 @@ USER root
 RUN apt-get update && apt-get install -y \
     wget \
     gnupg2 \
+    curl \
     && rm -rf /var/lib/apt/lists/*
 
 # Download and install Ollama
 RUN wget -qO - https://ollama.com/install.sh | bash
 
-# Create user jovan
-RUN useradd -m -s /bin/bash jovan
+# Add python packages
+RUN pip install numpy pandas matplotlib scikit-learn sqlalchemy ollama
+
+# Create user jovyan
+RUN useradd -m -s /bin/bash jovyan
 
 # Zurück zum Standardbenutzer
-USER ${NB_UID}
+USER jovyan
