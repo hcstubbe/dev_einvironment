@@ -1,5 +1,5 @@
 # Basis-Image von pytorch/pytorch
-FROM quay.io/jupyter/pytorch-notebook:latest
+FROM pytorch/pytorch:latest
 
 # Benutzer root für die Installation von Paketen
 USER root
