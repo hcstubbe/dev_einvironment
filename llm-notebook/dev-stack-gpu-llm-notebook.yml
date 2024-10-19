@@ -19,7 +19,7 @@ services:
       - 10000:8888
     networks:
       - llm-net-dev
-    user: "${UID}:${GID}"
+    user: root
     volumes:
       - ${DOCKER_DATA_PATH}/:/data
       - ${DOCKER_DATA_PATH_2}/:/data2
