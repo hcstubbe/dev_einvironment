@@ -15,8 +15,8 @@ RUN wget -qO - https://ollama.com/install.sh | bash
 
 # Install PyTorch
 RUN pip install -U sqlalchemy pandas ollama transformers trl accelerate 
-
 RUN pip install -U git+https://github.com/huggingface/trl.git
+RUN pip install llama-recipes
 
 # Default user
 USER ${NB_UID}
