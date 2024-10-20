@@ -14,7 +14,10 @@ RUN apt-get update && apt-get install -y \
 RUN wget -qO - https://ollama.com/install.sh | bash
 
 # Install PyTorch
-# RUN pip install torch torchvision torchaudio sqlalchemy pandas ollama
+RUN pip install sqlalchemy pandas ollama transformers torch torchvision torchaudio 
+
+# Add user jovyan
+RUN useradd -m jovyan
 
 # Zurück zum Standardbenutzer
 USER ${NB_UID}
