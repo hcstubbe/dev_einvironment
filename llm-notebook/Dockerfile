@@ -1,5 +1,5 @@
 # Basis-Image von jupyter/tensorflow-notebook
-FROM tensorflow/tensorflow:latest-gpu-jupyter
+FROM quay.io/jupyter/pytorch-notebook:cuda12-latest
 
 # Benutzer root für die Installation von Paketen
 USER root
@@ -14,10 +14,7 @@ RUN apt-get update && apt-get install -y \
 RUN wget -qO - https://ollama.com/install.sh | bash
 
 # Install PyTorch
-RUN pip install -U sqlalchemy pandas ollama transformers torch torchvision torchaudio trl accelerate 
-
-# Add user jovyan
-RUN useradd -m jovyan
+RUN pip install -U sqlalchemy pandas ollama transformers trl accelerate 
 
 # Zurück zum Standardbenutzer
 USER ${NB_UID}
