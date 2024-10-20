@@ -18,5 +18,5 @@ RUN pip install -U sqlalchemy pandas ollama transformers trl accelerate
 
 RUN pip install -U git+https://github.com/huggingface/trl.git
 
-# Zurück zum Standardbenutzer
+# Default user
 USER ${NB_UID}
