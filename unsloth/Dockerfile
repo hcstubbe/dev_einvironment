@@ -13,6 +13,8 @@ WORKDIR /workspace
 
 # Install Python packages
 RUN pip install --upgrade pip
+RUN pip install --upgrade --no-cache-dir "git+https://github.com/huggingface/transformers.git"
+RUN pip install pandas sqlalchemy trl peft accelerate bitsandbytes
 RUN pip install "unsloth[cu121-torch240] @ git+https://github.com/unslothai/unsloth.git"
 
 # Set the default command to bash
