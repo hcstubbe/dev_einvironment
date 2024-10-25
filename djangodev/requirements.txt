@@ -12,3 +12,4 @@ pynacl
 qrcode
 seaborn
 whitenoise
+ollama
