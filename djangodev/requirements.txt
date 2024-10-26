@@ -13,3 +13,4 @@ qrcode
 seaborn
 whitenoise
 ollama
+requests
