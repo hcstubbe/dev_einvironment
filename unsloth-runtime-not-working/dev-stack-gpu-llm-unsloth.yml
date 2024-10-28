@@ -9,7 +9,7 @@ services:
     volumes:
       - ${DOCKER_DATA_PATH}/:/data
       - ${DOCKER_DATA_PATH_2}/:/data2
-      # Define DOCKER_DATA_PATH and DOCKER_DATA_PATH_2 environment variables before running docker-compose
+      # Define DOCKER_DATA_PATH and DOCKER_DATA_PATH_2 environment variables before running docker compose
       # Example .env (Linux):
       # DOCKER_DATA_PATH=[/path/to/your/data]
       # DOCKER_DATA_PATH_2=[/path/to/your/data2]
