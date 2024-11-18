@@ -25,5 +25,7 @@ USER defaultuser
 # Set the working directory
 WORKDIR /home/defaultuser
 
+ENV OLLAMA_MODELS=/home/defaultuser/.ollama/models
+
 # Start the container with an endless running task
 CMD [ "/bin/sh" , "-c", "tail -f /dev/null" ]
