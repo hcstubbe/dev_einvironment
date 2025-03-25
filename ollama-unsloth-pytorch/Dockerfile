@@ -1,5 +1,5 @@
-FROM pytorch/pytorch:2.4.0-cuda12.1-cudnn9-devel
-
+FROM pytorch/pytorch:2.5.0-cuda12.4-cudnn9-devel
+                     
 # Install dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -16,7 +16,9 @@ RUN wget -qO - https://ollama.com/install.sh | bash
 RUN pip install --upgrade pip && \
     pip install --upgrade --no-cache-dir "git+https://github.com/huggingface/transformers.git" && \
     pip install pandas sqlalchemy trl peft accelerate bitsandbytes ollama && \
-    pip install "unsloth[cu121-torch240] @ git+https://github.com/unslothai/unsloth.git"
+    pip install "unsloth[cu124-ampere-torch250] @ git+https://github.com/unslothai/unsloth.git"
+    # pip install "unsloth[cu121-torch240] @ git+https://github.com/unslothai/unsloth.git"
+    
 
 # Create a default user
 RUN useradd -ms /bin/bash defaultuser
