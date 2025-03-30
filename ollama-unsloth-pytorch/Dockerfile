@@ -18,7 +18,6 @@ RUN pip install --upgrade pip && \
     pip install pandas sqlalchemy trl peft accelerate bitsandbytes ollama && \
     pip install "unsloth[cu124-ampere-torch250] @ git+https://github.com/unslothai/unsloth.git"
     
-
 # Create a default user
 RUN useradd -ms /bin/bash defaultuser
 USER defaultuser
@@ -27,6 +26,7 @@ USER defaultuser
 WORKDIR /home/defaultuser
 
 ENV OLLAMA_MODELS=/home/defaultuser/.ollama/models
+ENV LLAMACCP=/home/defaultuser/.llama_ccp
 
 # Start the container with an endless running task
 CMD [ "/bin/sh" , "-c", "tail -f /dev/null" ]
