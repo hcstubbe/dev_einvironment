@@ -17,7 +17,6 @@ RUN pip install --upgrade pip && \
     pip install --upgrade --no-cache-dir "git+https://github.com/huggingface/transformers.git" && \
     pip install pandas sqlalchemy trl peft accelerate bitsandbytes ollama && \
     pip install "unsloth[cu124-ampere-torch250] @ git+https://github.com/unslothai/unsloth.git"
-    # pip install "unsloth[cu121-torch240] @ git+https://github.com/unslothai/unsloth.git"
     
 
 # Create a default user
