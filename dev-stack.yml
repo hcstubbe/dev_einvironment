@@ -4,7 +4,6 @@ services:
   rstudio:
     image: rocker/rstudio:latest
     restart: always
-    user: rstudio
     environment:
       PASSWORD: test123
       ADD: shiny
