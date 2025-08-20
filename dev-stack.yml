@@ -1,4 +1,3 @@
-# Use root/example as user/password credentials
 services:
 
   rstudio:
@@ -10,9 +9,10 @@ services:
     ports:
       - 9090:8787
     networks:
-      - sp-net-dev
+      - r-jupyter-dev-net
     volumes:
-      - ${DOCKER_DATA_PATH}/:/home/rstudio
+      # Use DOCKER_DATA_PATH or fall back to the user's home directory
+      - ${DOCKER_DATA_PATH:-$HOME}:/home/rstudio
     deploy:
       replicas: 1
       restart_policy:
@@ -24,18 +24,17 @@ services:
     ports:
       - 10000:8888
     networks:
-      - sp-net-dev
+      - r-jupyter-dev-net
     volumes:
-      - ${DOCKER_DATA_PATH}/:/home/jovyan/home
-      - ${DOCKER_DATA_PATH_2}/:/home/jovyan/home2~~
+      - ${DOCKER_DATA_PATH:-$HOME}:/home/jovyan/home
+      - ${DOCKER_DATA_PATH_2:-$HOME}:/home/jovyan/home2
     user: jovyan
     deploy:
       replicas: 1
       restart_policy:
         condition: on-failure
     command: bash -c "start.sh jupyter lab"
-      
 
 networks:
-  sp-net-dev:
+  r-jupyter-dev-net:
     external: false
